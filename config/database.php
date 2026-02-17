@@ -43,20 +43,19 @@ return [
             'transaction_mode' => 'DEFERRED',
         ],
 
-'mysql' => [
-    'driver' => 'mysql',
+        'mysql' => [
+'driver' => 'mysql',
     'host' => env('DB_HOST', '127.0.0.1'),
-    'database' => env('DB_DATABASE', 'vh14167_test'),
-    'username' => env('DB_USERNAME', 'vh14167_test'),
-    'password' => env('DB_PASSWORD', 'obrazeknascianie123@'),
-    'charset' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
+    'database' => 'vh14167_test',
+    'username' => 'vh14167_test',
+    'password' => 'obrazeknascianie123@',
+    'charset' => 'utf8',            // Zmień z utf8mb4 na utf8
+    'collation' => 'utf8_general_ci',
     'strict' => false,
-    'options' => [
-        \PDO::ATTR_EMULATE_PREPARES => true, // To jest najważniejsze!
-        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci",
+'options' => [
+        \PDO::ATTR_EMULATE_PREPARES => true,
+        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'",
     ],
-],
             // 'driver' => 'mysql',
             // 'url' => null,
             // 'host' => env('DB_HOST', '127.0.0.1'),
