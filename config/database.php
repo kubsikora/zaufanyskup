@@ -44,17 +44,17 @@ return [
         ],
 
         'mysql' => [
-            'driver' => 'mysql',
-    'host' => '127.0.0.1',
+'driver' => 'mysql',
+    'host' => env('DB_HOST', '127.0.0.1'),
     'database' => 'vh14167_test',
     'username' => 'vh14167_test',
     'password' => 'obrazeknascianie123@',
     'charset' => 'utf8',            // Zmień z utf8mb4 na utf8
     'collation' => 'utf8_general_ci',
     'strict' => false,
-    'options' => [
-        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
-        \PDO::ATTR_EMULATE_PREPARES => true, // To może naprawić problem z \u0000
+'options' => [
+        \PDO::ATTR_EMULATE_PREPARES => true,
+        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'",
     ],
             // 'driver' => 'mysql',
             // 'url' => null,
