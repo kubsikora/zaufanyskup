@@ -45,16 +45,19 @@ return [
 
         'mysql' => [
 'driver' => 'mysql',
-    'host' => env('DB_HOST', '127.0.0.1'),
+    'host' => '127.0.0.1',
+    'port' => '3306',
     'database' => 'vh14167_test',
     'username' => 'vh14167_test',
     'password' => 'obrazeknascianie123@',
-    'charset' => 'utf8',            // Zmień z utf8mb4 na utf8
-    'collation' => 'utf8_general_ci',
-    'strict' => false,
-'options' => [
-        \PDO::ATTR_EMULATE_PREPARES => true,
-        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'",
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'prefix' => '',
+    'strict' => false, // Zmień na false
+    'engine' => null,
+    'options' => [
+        \PDO::ATTR_EMULATE_PREPARES => true, // To naprawia \u0000
+        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
     ],
             // 'driver' => 'mysql',
             // 'url' => null,
