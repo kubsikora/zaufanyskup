@@ -23,7 +23,7 @@ class AuthController extends Controller
         $reset = $request->input('reset');
         $user = User::where('email', $request->email)->first();
 
-        if (!$user) {
+        if ($user->password_reset == true && $reset == true && !$user) {
                 return response()->json(['message' => 'Użytkownik nie istnieje'], 401);
             }
 
