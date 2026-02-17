@@ -1,22 +1,18 @@
 <?php
-
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-// 1. Rejestracja Autoloadera Composer
+// Sprawdź czy ścieżka do vendor jest poprawna (zależy od struktury)
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
 require __DIR__.'/../vendor/autoload.php';
 
-// 2. Uruchomienie aplikacji (Bootstrap)
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-// 3. Obsługa żądania i wysłanie odpowiedzi
-$handle = $app->handle(Request::capture());
-
-$handle->send();
-
-$app->terminate();
+$request = Request::capture();
+$response = $app->handle($request);
+$response->send();
+$kernel->terminate($request, $response);
