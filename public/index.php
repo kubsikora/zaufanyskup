@@ -15,4 +15,4 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 $request = Request::capture();
 $response = $app->handle($request);
 $response->send();
-$kernel->terminate($request, $response);
+$app->terminate($request, $response);
